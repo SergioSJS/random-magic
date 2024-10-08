@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Magic Card Generator</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Área para exibir a carta -->
+        <div id="cardDisplay">
+            <img id="cardImage" src="" alt="Imagem da carta" />
+        </div>
+    </div>
+
+    <!-- Botões flutuantes -->
+    <button id="generateCardButton" class="floating-button">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/shuffle.png" alt="Nova Carta"/>
+    </button>
+    <button id="filterButton" class="floating-button secondary">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/filter.png" alt="Filtros"/>
+    </button>
+
+    <!-- Menu de filtros com layout vertical -->
+    <div id="filterMenu" class="filter-menu">
+        <label for="language">Idioma:</label>
+        <select id="language">
+            <option value="en">Inglês</option>
+            <option value="pt">Português</option>
+        </select>
+
+        <label for="cardType">Tipo de Carta:</label>
+        <select id="cardType">
+            <option value="">Todos os Tipos</option>
+            <option value="creature">Criatura</option>
+            <option value="artifact">Artefato</option>
+            <option value="basic">Terreno Básico</option>
+            <option value="land">Terreno</option>
+        </select>
+
+        <label for="cardColor">Cores:</label>
+        <select id="cardColor" multiple>
+            <option value="white">Branco</option>
+            <option value="blue">Azul</option>
+            <option value="black">Preto</option>
+            <option value="red">Vermelho</option>
+            <option value="green">Verde</option>
+            <option value="multicolor">Multicolor</option>
+        </select>
+
+        <button id="applyFilters" class="apply-button">Aplicar Filtros</button>
+    </div>
+
+    <script src="scripts/script.js"></script>
+</body>
+</html>
