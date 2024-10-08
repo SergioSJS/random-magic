@@ -12,27 +12,32 @@ body {
 }
 
 .container {
-    text-align: center;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
+    gap: 0px;
+    margin-top: 0px;
+    padding-top: 0px;
+    overflow-y: auto;
 }
 
-#cardDisplay {
-    margin-top: 20px;
+.card-item {
+    width: 100%; /* A largura será ajustada dinamicamente */
+    max-width: 200px;
+    cursor: pointer;
 }
 
-#cardImage {
-    max-width: 100%;
-    max-height: 80vh;
+.card-item img {
+    width: 100%;
+    height: auto;
+}
+
+.card-item.large {
+    max-width: 300px; /* Cartas maiores quando há menos cartas */
 }
 
 /* Estilos para os botões flutuantes */
 .floating-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
     background-color: #007bff;
     border: none;
     color: white;
@@ -40,10 +45,8 @@ body {
     border-radius: 50%;
     cursor: pointer;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
-}
-
-.floating-button.secondary {
-    right: 100px;
+    margin: 0 10px; /* Espaçamento uniforme entre os botões */
+    position: relative; /* Ajustar a posição */
 }
 
 .floating-button img {
@@ -51,9 +54,41 @@ body {
     height: 30px;
 }
 
+/* Agrupando os botões em um container para melhor controle de layout */
+.floating-buttons-container {
+    position: fixed;
+    bottom: 20px;
+    display: flex;
+    justify-content: center;
+    width: 100%; /* Centraliza os botões horizontalmente */
+}
+
+.floating-button.secondary {
+    background-color: #0056b3; /* Cor levemente diferente */
+}
+
+.floating-button.quantity-controls {
+    background-color: #28a745; /* Cor levemente diferente para os controles de quantidade */
+}
+
+.floating-button.decrease,
+.floating-button.increase,
+.floating-button.quantity {
+    background-color: #28a745; /* Cor levemente diferente para os três botões de controle */
+}
+
+.floating-button.quantity {
+    width: 60px;
+    height: 60px;
+    font-size: 20px;
+    text-align: center;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 /* Menu de filtros com layout vertical */
 .filter-menu {
-    display: none;
+    display: none; /* Escondido por padrão */
     position: fixed;
     bottom: 80px;
     right: 20px;
@@ -80,4 +115,33 @@ body {
 
 .apply-button:hover {
     background-color: #218838;
+}
+
+/* Modal de visualização da carta */
+.card-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.card-modal .modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 80%;
+}
+
+.card-modal .close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
 }

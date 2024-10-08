@@ -6,21 +6,28 @@
     <title>Random Magic Card Generator</title>
     <link rel="stylesheet" href="styles/style.css">
 </head>
+
 <body>
-    <div class="container">
-        <!-- Área para exibir a carta -->
-        <div id="cardDisplay">
-            <img id="cardImage" src="" alt="Imagem da carta" />
-        </div>
+    <div class="container" id="cardContainer">
+        <!-- As cartas geradas serão inseridas aqui -->
     </div>
 
-    <!-- Botões flutuantes -->
-    <button id="generateCardButton" class="floating-button">
-        <img src="https://img.icons8.com/ios-filled/50/ffffff/shuffle.png" alt="Nova Carta"/>
-    </button>
-    <button id="filterButton" class="floating-button secondary">
-        <img src="https://img.icons8.com/ios-filled/50/ffffff/filter.png" alt="Filtros"/>
-    </button>
+    <!-- Agrupamento dos botões flutuantes -->
+    <div class="floating-buttons-container">
+        <button id="decreaseQuantityButton" class="floating-button decrease">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/minus.png" alt="Diminuir"/>
+        </button>
+        <input type="number" id="cardQuantity" class="floating-button quantity" value="1" min="1" max="10">
+        <button id="increaseQuantityButton" class="floating-button increase">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/plus.png" alt="Aumentar"/>
+        </button>
+        <button id="generateCardButton" class="floating-button">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/shuffle.png" alt="Nova Carta"/>
+        </button>
+        <button id="filterButton" class="floating-button secondary">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/filter.png" alt="Filtros"/>
+        </button>
+    </div>
 
     <!-- Menu de filtros com layout vertical -->
     <div id="filterMenu" class="filter-menu">
@@ -35,7 +42,7 @@
             <option value="">Todos os Tipos</option>
             <option value="creature">Criatura</option>
             <option value="artifact">Artefato</option>
-            <option value="basic">Terreno Básico</option>
+            
             <option value="land">Terreno</option>
         </select>
 
@@ -46,12 +53,19 @@
             <option value="black">Preto</option>
             <option value="red">Vermelho</option>
             <option value="green">Verde</option>
-            <option value="multicolor">Multicolor</option>
+  
         </select>
 
         <button id="applyFilters" class="apply-button">Aplicar Filtros</button>
     </div>
 
+    <!-- Modal para visualização ampliada da carta -->
+    <div id="cardModal" class="card-modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
     <script src="scripts/script.js"></script>
 </body>
+
 </html>
