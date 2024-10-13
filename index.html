@@ -36,7 +36,7 @@
             <option value="en">Inglês</option>
             <option value="pt">Português</option>
         </select>
-
+        
         <label for="cardType">Tipo de Carta:</label>
         <select id="cardType">
             <option value="">Todos os Tipos</option>
@@ -45,7 +45,7 @@
             
             <option value="land">Terreno</option>
         </select>
-
+        
         <label for="cardColor">Cores:</label>
         <select id="cardColor" multiple>
             <option value="white">Branco</option>
@@ -53,9 +53,10 @@
             <option value="black">Preto</option>
             <option value="red">Vermelho</option>
             <option value="green">Verde</option>
-  
         </select>
-
+        
+        <button id="selectSetButton" class="other-button">Sets</button>
+        
         <button id="applyFilters" class="apply-button">Aplicar Filtros</button>
     </div>
 
@@ -64,6 +65,29 @@
         <span class="close">&times;</span>
         <img class="modal-content" id="modalImage">
     </div>
+
+    <!-- Modal de seleção de sets -->
+    <div id="setModal" class="set-modal" style="display: none;">
+        <div class="set-modal-content">
+            <span class="close-set-modal">&times;</span>
+            <h3>Selecione os Sets</h3>
+
+            <!-- Input de busca por nome de set -->
+            <input type="text" id="searchSet" placeholder="Buscar por nome do set">
+
+            <!-- Container para exibir os sets com paginação -->
+            <div id="setList" class="set-list">
+                <!-- Sets carregados dinamicamente -->
+            </div>
+
+            <!-- Botões de navegação de páginas -->
+            <button id="prevPage" class="other-button" disabled>Anterior</button>
+            <button id="nextPage" class="other-button">Próximo</button>
+
+            <button id="applySetFilters" class="apply-button">Aplicar Seleção</button>
+        </div>
+    </div>
+
 
     <script src="scripts/script.js"></script>
 </body>

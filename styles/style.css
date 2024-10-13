@@ -105,7 +105,7 @@ body {
 }
 
 .apply-button {
-    margin-top: 10px;
+    margin-top: 1px;
     padding: 10px 20px;
     background-color: #28a745;
     color: white;
@@ -116,6 +116,20 @@ body {
 
 .apply-button:hover {
     background-color: #218838;
+}
+
+.other-button {
+    margin-top: 1px;
+    padding: 10px 20px;
+    background-color: #2831a7;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.other-button:hover {
+    background-color: #342188;
 }
 
 /* Modal de visualização da carta */
@@ -141,8 +155,71 @@ body {
     position: absolute;
     top: 15px;
     right: 35px;
-    color: #fff;
+    color: #222;
     font-size: 40px;
     font-weight: bold;
     cursor: pointer;
+}
+
+/* Estilos para o modal de sets */
+.set-modal {
+    display: none;
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.set-modal-content {
+    margin: auto;
+    padding: 20px;
+    background-color: #222;
+    max-width: 600px;
+    border-radius: 8px;
+    text-align: center;
+    position: relative;
+}
+
+.set-modal .close-set-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Estilos para a lista de sets e paginação */
+.set-list {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.set-list-item {
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+button.apply-button {
+    margin-top: 20px;
+}
+
+#setModal input[type="text"] {
+    width: 80%;
+    padding: 10px;
+    margin: 20px 0;
+    border: 2px solid #28a745; /* Cor verde para combinar com o tema */
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+#setModal input[type="text"]:focus {
+    outline: none;
+    border-color: #218838; /* Foco com uma cor levemente mais escura */
+    box-shadow: 0 0 5px #218838;
 }
