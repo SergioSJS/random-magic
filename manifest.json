@@ -1,0 +1,31 @@
+{
+  "name": "Random Magic Card Generator",
+  "short_name": "Random Magic",
+  "description": "Gerador de cartas aleatórias do Magic: The Gathering usando a API do Scryfall",
+  "start_url": "/random-magic/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#667eea",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "/random-magic/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/random-magic/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/random-magic/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
+
