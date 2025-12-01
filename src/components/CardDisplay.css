@@ -1,0 +1,192 @@
+.card-container {
+  display: grid;
+  gap: 20px;
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 0 20px;
+  justify-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+/* 1 carta - ocupa mais espaço */
+.card-container.single {
+  grid-template-columns: repeat(auto-fit, minmax(400px, 600px));
+  justify-content: center;
+}
+
+/* 2 cartas - lado a lado em telas grandes, empilhadas em telas pequenas */
+.card-container.double {
+  grid-template-columns: repeat(auto-fit, minmax(350px, 500px));
+}
+
+/* 3-4 cartas - 2 por linha em telas médias, mais em telas grandes */
+.card-container.few {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 400px));
+}
+
+/* 5-6 cartas - mais colunas */
+.card-container.medium {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 350px));
+}
+
+/* 7+ cartas - máximo de colunas */
+.card-container.many {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
+}
+
+.card-item {
+  width: 100%;
+  max-width: 100%;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  aspect-ratio: 63 / 88; /* Proporção padrão de cartas Magic */
+}
+
+.card-item:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+.card-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+  .card-container {
+    grid-template-columns: 1fr !important;
+    gap: 16px;
+    padding: 0 16px;
+  }
+  
+  .card-item {
+    max-width: 100%;
+  }
+}
+
+/* Telas médias */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .card-container.single {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 500px));
+  }
+  
+  .card-container.double {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 450px));
+  }
+  
+  .card-container.few {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 350px));
+  }
+  
+  .card-container.medium,
+  .card-container.many {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 320px));
+  }
+}
+
+/* Telas grandes */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .card-container.many {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 280px));
+  }
+}
+
+/* Telas muito grandes */
+@media (min-width: 1441px) {
+  .card-container.many {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 320px));
+  }
+}
+
+.loading {
+  text-align: center;
+  padding: 60px 20px;
+  font-size: 24px;
+  color: #aaa;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.empty-state p {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.empty-state .hint {
+  font-size: 16px;
+  color: #888;
+}
+
+.modal {
+  display: flex;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.95);
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.2s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  animation: scaleIn 0.2s;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.modal-content img {
+  max-width: 100%;
+  max-height: 90vh;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
+}
+
+.close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.close:hover {
+  color: #ff6b6b;
+}
+

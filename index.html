@@ -1,95 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="Gerador de cartas aleatórias do Magic: The Gathering usando a API do Scryfall" />
+    <meta name="theme-color" content="#667eea" />
+    
+    <!-- PWA Meta Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Random Magic" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+    
+    <!-- Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+    
     <title>Random Magic Card Generator</title>
-    <link rel="stylesheet" href="styles/style.css">
-</head>
-
-<body>
-    <div class="container" id="cardContainer">
-        <!-- As cartas geradas serão inseridas aqui -->
-    </div>
-
-    <!-- Agrupamento dos botões flutuantes -->
-    <div class="floating-buttons-container">
-        <button id="decreaseQuantityButton" class="floating-button decrease">
-            <img src="https://img.icons8.com/ios-filled/50/ffffff/minus.png" alt="Diminuir"/>
-        </button>
-        <input type="number" id="cardQuantity" class="floating-button quantity" value="1" min="1" max="10">
-        <button id="increaseQuantityButton" class="floating-button increase">
-            <img src="https://img.icons8.com/ios-filled/50/ffffff/plus.png" alt="Aumentar"/>
-        </button>
-        <button id="generateCardButton" class="floating-button">
-            <img src="https://img.icons8.com/ios-filled/50/ffffff/shuffle.png" alt="Nova Carta"/>
-        </button>
-        <button id="filterButton" class="floating-button secondary">
-            <img src="https://img.icons8.com/ios-filled/50/ffffff/filter.png" alt="Filtros"/>
-        </button>
-    </div>
-
-    <!-- Menu de filtros com layout vertical -->
-    <div id="filterMenu" class="filter-menu">
-        <label for="language">Idioma:</label>
-        <select id="language">
-            <option value="en">Inglês</option>
-            <option value="pt">Português</option>
-        </select>
-        
-        <label for="cardType">Tipo de Carta:</label>
-        <select id="cardType">
-            <option value="">Todos os Tipos</option>
-            <option value="creature">Criatura</option>
-            <option value="artifact">Artefato</option>
-            
-            <option value="land">Terreno</option>
-        </select>
-        
-        <label for="cardColor">Cores:</label>
-        <select id="cardColor" multiple>
-            <option value="white">Branco</option>
-            <option value="blue">Azul</option>
-            <option value="black">Preto</option>
-            <option value="red">Vermelho</option>
-            <option value="green">Verde</option>
-        </select>
-        
-        <button id="selectSetButton" class="other-button">Sets</button>
-        
-        <button id="applyFilters" class="apply-button">Aplicar Filtros</button>
-    </div>
-
-    <!-- Modal para visualização ampliada da carta -->
-    <div id="cardModal" class="card-modal">
-        <span class="close">&times;</span>
-        <img class="modal-content" id="modalImage">
-    </div>
-
-    <!-- Modal de seleção de sets -->
-    <div id="setModal" class="set-modal" style="display: none;">
-        <div class="set-modal-content">
-            <span class="close-set-modal">&times;</span>
-            <h3>Selecione os Sets</h3>
-
-            <!-- Input de busca por nome de set -->
-            <input type="text" id="searchSet" placeholder="Buscar por nome do set">
-
-            <!-- Container para exibir os sets com paginação -->
-            <div id="setList" class="set-list">
-                <!-- Sets carregados dinamicamente -->
-            </div>
-
-            <!-- Botões de navegação de páginas -->
-            <button id="prevPage" class="other-button" disabled>Anterior</button>
-            <button id="nextPage" class="other-button">Próximo</button>
-
-            <button id="applySetFilters" class="apply-button">Aplicar Seleção</button>
-        </div>
-    </div>
-
-
-    <script src="scripts/script.js"></script>
-</body>
-
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>

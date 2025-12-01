@@ -1,0 +1,94 @@
+.floating-buttons-container {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  padding: 8px;
+  border-radius: 50px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+.floating-button {
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.floating-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.floating-button:not(:disabled):hover {
+  transform: scale(1.1);
+}
+
+.floating-button.primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.floating-button.primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  box-shadow: 0 4px 16px rgba(102, 126, 234, 0.4);
+}
+
+.floating-button.secondary {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.floating-button.secondary:hover:not(:disabled) {
+  background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%);
+  box-shadow: 0 4px 16px rgba(245, 87, 108, 0.4);
+}
+
+.floating-button.quantity-control {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.floating-button.quantity-control:hover:not(:disabled) {
+  background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+  box-shadow: 0 4px 16px rgba(79, 172, 254, 0.4);
+}
+
+.floating-button.quantity-display {
+  background: rgba(255, 255, 255, 0.1);
+  min-width: 44px;
+  cursor: default;
+}
+
+.floating-button.quantity-display:hover {
+  transform: none;
+}
+
+@media (max-width: 768px) {
+  .floating-buttons-container {
+    gap: 6px;
+    padding: 6px;
+  }
+  
+  .floating-button {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+  
+  .floating-button.quantity-display {
+    min-width: 40px;
+  }
+}
+
